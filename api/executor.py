@@ -34,7 +34,7 @@ class Executor(object):
 
         yield proc.wait()
 
-    def __build_procedures(self)r:
+    def __build_procedures(self):
         scripts = self.scripts_path
         return [
             [scripts + 'checkout.sh', self.checkout_target],
