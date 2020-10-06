@@ -6,4 +6,5 @@ realpath() {
 DIR=$(dirname "$(realpath "$0")")
 source $DIR'/util.sh'
 cd $TIDB_GIT
+make clean
 make

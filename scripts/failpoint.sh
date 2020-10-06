@@ -6,8 +6,8 @@ realpath() {
 DIR=$(dirname "$(realpath "$0")")
 source $DIR'/util.sh'
 cd $TIDB_GIT
-make_bin_info
+if [ -f tools/bin/failpoint-ctl ]
+then
+    find $TIDB_GIT -type d | xargs tools/bin/failpoint-ctl $1
+fi
 
-tar -czvf $gzFile bin/*
-mkdir -p $BIN
-mv "$TIDB_GIT/$gzFile" "$BIN$gzFile"

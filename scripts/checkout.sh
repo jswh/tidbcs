@@ -36,6 +36,18 @@ else
     update_tidb_code
 fi
 cd $TIDB_GIT
+make clean
+git add .
 git reset --hard
-git checkout $CHECKOUT_TARGET
+if [ -f owner/new_session:12379 ]
+then
+    rm owner/new_session:12379
+fi
 
+git checkout $CHECKOUT_TARGET
+make_bin_info
+if [ -f "$BIN$gzFile" ]
+then
+    echo 'alreay complile: '$gzFile
+    exit 1
+fi
