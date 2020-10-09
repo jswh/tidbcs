@@ -20,6 +20,7 @@ update_tidb_code() {
 }
 
 init_tidb_code() {
+    mkdir -p $TIDB_GIT
     cd $TIDB_GIT
     git clone $TIDB_SOURCE $TIDB_GIT
     cd $WORKSPACE
